@@ -26,13 +26,15 @@ end
 
 @array1 = ['one', 'four', 'three', 'eleven']
 
-result = add_and_subtract(2, 4)
-puts result [0]
-puts "and now for the subtract result"
-puts result [1]
-puts 'and now for double assignment'
-add, sub = add_and_subtract(8, 3)
-puts add
-puts sub
+# result = add_and_subtract(2, 4)
+# puts result [0]
+# puts "and now for the subtract result"
+# puts result [1]
+# puts 'and now for double assignment'
+# add, sub = add_and_subtract(8, 3)
+# puts add
+# puts sub
 
 # =============================
+
+
