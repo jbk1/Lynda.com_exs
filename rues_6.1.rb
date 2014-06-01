@@ -59,6 +59,14 @@ class Animal
 
 end
 
+class Cow < Animal
+
+	def color
+		"The cow\'s color is #{color}."
+	end
+
+end
+
 # and below here is simply where we call the methods:
 Animal.species = ['frog','fish']
 puts Animal.species.inspect
@@ -78,3 +86,8 @@ puts animal2.color
 
 puts Animal.current_animals.inspect
 
+maisie = Cow.create_with_attributes('moo', 'yellow')
+puts maisie.noise
+puts animal1.class
+puts maisie.class
+puts maisie.color
