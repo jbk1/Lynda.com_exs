@@ -1,4 +1,4 @@
-
+load 'person.7.0.rb'
 
 class Person
 	include ContactInfo
