@@ -1,58 +1,80 @@
 # =============================
 
-# Working on Classes & instances.
+# Working on initislization.
 
 class Animal
-# 5) setting new attributes:
 	attr_accessor :name
+	attr_accessor :noise 
 	attr_writer :color
-	attr_reader :legs, :arms # reader only as these attributes would not change.
+	attr_reader :legs, :arms
 
+# defining class variables here:
+	@@species = ['cat','cow','dog','duck','horse','pig']
+	@@current_animals = []
+
+# All of the self.methods below are the class methods:
+
+#  Writer method for the .species class variable:
+	def self.species=(array=[])
+		@@species = array
+	end
+
+# Reader method for the @@species class variable:
+	def self.species
+		@@species
+	end
+
+# Reader method for the @@current_animals clss variable:
+	def self.current_animals
+		@@current_animals
+	end
+
+# An 'attribute creator' method for class Animal:
+	def self.create_with_attributes(noise, color)
+	animal = self.new(noise)
+	animal.color = color
+	return animal
+	end
+
+# Methods below here are all instance methods:
+	def initialize(noise, legs=4, arms=0)
+		@noise = noise
+		@legs = legs
+		@arms = arms
+	@@current_animals << self
+	puts "A new animal has been instantiated"
+	end
 
 	def noise= (noise)
 		@noise = noise
 	end
-# 1) DEFINING NOISE: Or the shortcut for a writer method is, above and below are the same:
-	attr_writer :noise
-
-
+	
 	def noise
 		@noise
 	end
-# 2) Or the shortcut for a reader method is, above nd below are the same:
-	attr_reader :noise
-
-
-# 3) Or the shortcut for reader and writer methods in one is as below:
-	attr_accessor :noise 
-
-
-# 4) Then we go back to using the attr_..... methods to write or read other attributes into instance variables, go to no 5) above.
-
-	def color	# 6)
+	
+	def color
 		"Animal1 color is #{@color}"
 	end
 
-	def setup_limbs
-		@legs = 4
-		@arms = 0
-	end
 end
 
-animal1 = Animal.new
-animal1.setup_limbs
-animal1.noise= "baaah"
-animal1.name= "Steve"	# write the name attribute value
-puts animal1.name		# read the name attribute value
-animal1.color= "black"	# write the color
-puts animal1.color		# read the color, ran error as only attr_writer written, wrote a separate method color, see 6)
-puts animal1.legs		# read the legs attribute, which we set within setup_limbs method, as with arms
-puts animal1.arms		# read the arms attribute
-puts animal1.noise      # read the noise attribute
+# and below here is simply where we call the methods:
+Animal.species = ['frog','fish']
+puts Animal.species.inspect
 
+animal1 = Animal.new("moo",4,0)
+animal1.name= "Steve"	
+puts animal1.name		
+animal1.color= "black"	
+puts animal1.color		
+puts animal1.legs		
+puts animal1.arms		
+puts animal1.noise      
 
-animal2 = Animal.new
-animal2.noise= "quack"	
+animal2 = Animal.create_with_attributes("quack", "white")
 puts animal2.noise
+puts animal2.color
 
+puts Animal.current_animals.inspect
 
