@@ -37,7 +37,6 @@ class Animal
 		@legs = 4
 		@arms = 0
 	end
-
 end
 
 animal1 = Animal.new
@@ -47,7 +46,7 @@ animal1.name= "Steve"	# write the name attribute value
 puts animal1.name		# read the name attribute value
 animal1.color= "black"	# write the color
 puts animal1.color		# read the color, ran error as only attr_writer written, wrote a separate method color, see 6)
-puts animal1.legs		# read the legs attribute
+puts animal1.legs		# read the legs attribute, which we set within setup_limbs method, as with arms
 puts animal1.arms		# read the arms attribute
 puts animal1.noise      # read the noise attribute
 
